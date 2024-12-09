@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>RGW Photography - Photographs</title>
+<link href="css/rgwpage.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body id="photosPage" onload="initializeDisplay()">
+    
+<div id="container">
+    <a id="headerImage" href="index.html">
+	<img src="images/rgw-heading.png" alt="Sketch of Rob Willhoft" align="left" />
+    </a>
+    <div id="header">
+	<div id="headerTitle">
+	    <p><strong>RGW Photography</strong></p>
+	</div>
+	<div id="headerInfo">
+	    <p>
+		5727 Chili Riga Center Rd<br/>
+		Churchville, NY 14428<br />
+		willhoft@gmail.com
+	    </p>
+	</div>
+    </div>
+    
+    <div id="menu">
+	<a href="photos.html">
+	    <img src="images/menu-photos.jpg" alt="Photographs" />
+	</a>
+	<a href="scanner-art.html">
+	    <img src="images/menu-scanner-art.jpg" alt="Scanner Art" />
+	</a>
+	<a href="equip.html">
+	    <img src="images/menu-equip.jpg" alt="Equipment" />
+	</a>
+	<a href="info.html">
+	    <img src="images/menu-info.jpg" alt="Information" />
+	</a>
+	<a href="contact.html">
+	    <img src="images/menu-contact.jpg" alt="Contact" />
+	</a>
+    </div>
+    
+    <div id="photoStrip">
+	<div id="leftEnd" onclick="goLeft()">
+	    <img src="images/left-arrow.jpg" alt="Left arrow" />
+	</div>
+	<div id="thumb1" onclick="selectImage1()">
+	    <img src="images/gallery/thumb-blank.jpg" alt="Thumb1" />
+	</div>
+	<div id="thumb2" onclick="selectImage2()">
+	    <img src="images/gallery/thumb-blank.jpg" alt="Thumb2" />
+	</div>
+	<div id="thumb3" onclick="selectImage3()">
+	    <img src="images/gallery/thumb-blank.jpg" alt="Thumb3" />
+	</div>
+	<div id="thumb4" onclick="selectImage4()">
+	    <img src="images/gallery/thumb-blank.jpg" alt="Thumb4" />
+	</div>
+	<div id="rightEnd" onclick="goRight()">
+	    <img src="images/no-arrow.jpg" alt="Right Arrow" />
+	</div>
+    </div>
+    
+    <div id="photoArea">
+	<img src="images/gallery/blank.jpg" alt="Blank" />
+	<p>
+	    This is text...
+	</p>
+    </div>
+    
+    <!-- <div class="spacer"></div> -->
+    
+    <div id="footer">
+	<strong>&#169; 2012, RG Willhoft</strong>
+    </div>
+    
+</div>
+
+<script>
+    
+    var maxThumb = 20;
+    
+    function createStrip( offset, image ) {
+	
+	for( i=1; i<=4; i++ ) {
+	    var thumbElement = document.getElementById( "thumb" + i );
+	    var thumbImage = "gallery/thumb" + (i+offset) + ".jpg";
+	    thumbElement.innerHTML = "<img src='" + thumbImage + "' alt='Thumb" + i + "' />";
+	}
+	
+	var leftElement = document.getElementById( "leftEnd" );
+	if( offset == 0 ) {
+	    leftElement.innerHTML = "<img src='images/no-arrow.jpg' alt='No arrow' />";
+	}
+	else {
+	    leftElement.innerHTML = "<img src='images/left-arrow.jpg' alt='Left arrow' />";
+	}
+	
+	var rightElement = document.getElementById( "rightEnd" );
+	if( (offset+4) == maxThumb ) {
+	    rightElement.innerHTML = "<img src='images/no-arrow.jpg' alt='No arrow' />";
+	}
+	else {
+	    rightElement.innerHTML = "<img src='images/right-arrow.jpg' alt='Right arrow' />";
+	}
+	
+	displayImage( offset + image );
+    }
+    
+    function displayImage( image ) {
+	    var photoElement = document.getElementById( "photoArea" );
+	    var photoImage = "gallery/image" + image + ".jpg";
+	    var imageText = "gallery/text" + image + ".html";
+	    console.log( imageText );
+	    photoElement.innerHTML = "<img src='" + photoImage + "' alt='Selected Image'/>"
+				     + "<br/>"
+	                             + "<iframe name='photoText' src='" + imageText + "' frameborder='0' width='910px' height='75px' scrolling='no'></iframe>";
+    }
+    
+    function goLeft() {
+	offset = loadOffset();
+	offset -= 4;
+	if( offset < 0 ) { offset = 0; }
+	createStrip( offset, 4 );
+	saveOffset( offset );
+    }
+    function selectImage1() {
+	offset = loadOffset();
+	displayImage( offset + 1 );
+	saveOffset( offset );
+    }
+    
+    function selectImage2() {
+	offset = loadOffset();
+	displayImage( offset + 2 );
+	saveOffset( offset );
+    }
+    
+    function selectImage3() {
+	offset = loadOffset();
+	displayImage( offset + 3 );
+	saveOffset( offset );
+    }
+    
+    function selectImage4() {
+	offset = loadOffset();
+	displayImage( offset + 4 );
+	saveOffset( offset );
+    }
+    
+    function goRight() {
+	offset = loadOffset();
+	offset += 4;
+	if( offset > maxThumb-4 ) { offset = maxThumb-4; }
+	createStrip( offset, 1 );
+	saveOffset( offset );
+    }
+    
+    function initializeDisplay() {
+	offset = 0;
+	// displayImage( 1 );
+	createStrip( offset, 1 );
+	offset = saveOffset( offset );
+    }
+    
+    // The following two functions are based on code from http://www.w3schools.com/JS/js_cookies.asp
+    
+    function saveOffset( offset ) {
+	// console.log( "saveOffset( " + offset + " )" );
+	document.cookie = "RgwPhotoOffset=" + offset;
+    }
+    
+    function loadOffset() {
+	// console.log( "loadOffset()" );
+	cookies = document.cookie.split(";");
+	for( i=0; i<cookies.length; i++ )
+	{
+	    lhs=cookies[i].substr(0,cookies[i].indexOf("="));
+	    lhs=lhs.replace(/^\s+|\s+$/g,"");
+	    rhs=cookies[i].substr(cookies[i].indexOf("=")+1);
+	    if( lhs == "RgwPhotoOffset" ) {
+		return parseInt(rhs);
+	    }
+	}
+	return 0;
+    }
+
+</script>	
+
+</body>
+</html>

@@ -1,0 +1,297 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	font-family: architect, arial, sans-serif;
+	font-size:14px;
+	color:#000000;
+	text-align: left; 
+	margin:0;
+}
+
+@font-face{
+	font-family: 'architect';
+	src:url('../fonts/ArchitectsDaughter.ttf') format('truetype');
+	font-style:normal;
+	font-weight: normal;
+}
+
+@font-face{
+	font-family: 'marker';
+	src:url('../fonts/PermanentMarker.ttf') format('truetype');
+	font-style:normal;
+	font-weight: normal;
+}
+
+#container {
+	width:960px;
+	margin:0 auto;
+}
+
+#header{
+	margin:0;
+	width:auto;
+	height:100px;
+	background-image:url('../images/top-gradiant.png');
+	background-repeat:repeat-x;
+	color:#ffffff;
+	border-style: none;
+}
+
+#headerImage{
+	width:100px;
+	padding:0;
+	margin:0;
+}
+
+#headerImage img {
+	border-style: none;
+}
+
+#headerTitle{
+	font-size:40px;
+	line-height:18px;
+	position:inherit;
+	width:480px;
+	padding-left:25px;
+	float:left;
+}
+
+#headerInfo{
+	font-size:18px;
+	line-height:20px; 
+	width:300px;
+	float:right;
+	padding-right:25px;
+	text-align:right;
+}
+
+#menu{
+	margin:0;
+	padding:0;
+	padding-left:10px;
+	width:850px;
+	height:25px;
+	float:right;
+	background-image:url('../images/menu-gradiant.png');
+	background-repeat:repeat-x;
+	float:left;
+}
+
+#menu img{
+	border-style:none;
+}
+
+#footer{
+	margin:0;
+	width:auto;
+	height:25px;
+	background-image:url('../images/bottom-gradiant.png');
+	background-repeat:repeat-x;
+	color:#ffffff;
+	padding-right:25px;
+	padding-top:0;
+	text-align:right;
+}
+
+#welcome{
+	background-image:url('../images/cameras-background.jpg');
+	background-repeat:no-repeat;
+	font-size:18px;
+	font-weight: bold;
+	width:810px;
+	height:548px;
+	padding:75px;
+}
+
+#contact{
+	background-image:url('../images/lenses-background.jpg');
+	background-repeat:no-repeat;
+	background-color: #000000;
+	color: #ffffff;
+	width:910px;
+	padding:25px;
+}
+
+#contact input{
+	background-color: #cccccc;
+}
+
+#contact a{
+	color:#ffffff;
+}
+
+#contact textarea{
+	background-color: #cccccc;
+}
+
+#resume{
+	font-family: architect, arial, sans-serif;
+	font-size:12px;
+	padding-left:25px;
+	padding-bottom:5px;
+	background-color: #eeeeee;
+}
+
+#resume h1{
+	padding-top:25px;
+}
+
+#resumeSection{
+	background-color: #cccccc;
+	width:910px;
+}
+
+#resumeSection h2{
+	margin-left:10px;
+	margin-top:5px;
+	margin-bottom:0px;
+	padding-top:5px;
+}
+
+#resumeSection ul{
+	margin-top:0px;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+#photoStrip{
+	background-image:url('../images/photo-strip.png');
+	background-repeat:no-repeat;
+	background-color: #ffffff;
+	color: #000000;
+	width:960px;
+	height:220px;
+	margin-top:25px;
+	padding:0;
+}
+
+#photoArea{
+	background-color: #dddddd;
+	color: #000000;
+	width:910px;
+	padding:25px;
+	padding-bottom:0;
+}
+
+#leftEnd{
+	position:relative;
+	top:46px;
+	left:0;
+	width:74px;
+	height:126px;
+	float:left;	
+}
+
+#thumb1{
+	position:relative;
+	top:46px;
+	padding-left:10px;
+	width:190px;
+	height:126px;
+	float:left;
+}
+
+#thumb2{
+	position:relative;
+	top:46px;
+	padding-left:10px;
+	width:190px;
+	height:126px;
+	float:left;
+}
+
+#thumb3{
+	position:relative;
+	top:46px;
+	padding-left:10px;
+	width:190px;
+	height:126px;
+	float:left;
+}
+
+#thumb4{
+	position:relative;
+	top:46px;
+	padding-left:10px;
+	width:190px;
+	height:126px;
+	float:left;
+}
+
+#rightEnd{
+	position:relative;
+	top:46px;
+	padding-left:10px;
+	width:74px;
+	height:126px;
+	float:left;	
+}
+
+#photoText{
+	font-family: architect, arial, sans-serif;
+	font-size:14px;
+	padding:0;
+	margin:0;
+	color:#333333;
+	background-color: #dddddd;
+}
+
+#equipment{
+	font-family: marker, arial, sans-serif;
+	font-size:14px;
+	padding:0;
+	margin:0;
+	color:#333333;
+	background-color: #eeeeee;
+}
+
+.equipmentThumb{
+	margin:0;
+	padding:0;
+	width:250px;
+	float:left;
+}
+
+.equipmentText{
+	margin:0;
+	padding-left:25px;
+	padding-right:25px;
+	padding-top:10px;
+	width:660px;
+	float:right;
+}
+
+.equipmentText h1{
+	margin-bottom:0;
+}
+
+.equipmentText h2{
+	display:inline;
+}
+
+.equipmentText p{
+	display:inline;
+	margin-top:0;
+}
+
+#scannerArt{
+	background-color: #000000;
+	color: #cccccc;
+	padding:25px;
+}
+
+#scannerArt h2{
+	text-align: center;
+}
+
+#scannerArt img{
+	display: block;
+	margin-left:auto;
+	margin-right:auto;
+	border-style: solid;
+	border-width: 10px;
+	border-color: #ffffff;
+}
+
+.spacer{clear:both; height:0;}
